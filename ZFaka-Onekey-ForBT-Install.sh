@@ -58,7 +58,8 @@ echo -e "${Info} 请等待系统自动操作......"
 
 #处理源码
 yum -y install unzip
-cd /www/wwwroot/$website && rm -rf * && wget https://github.com/lizhongnian/zfaka/archive/1.4.3.tar.gz && tar xf 1.4.3.tar.gz && mv zfaka-1.4.3/* /www/wwwroot/$website && rm -rf zfaka-1.4.3
+yum -y instabll git
+cd /www/wwwroot/3.113.175.118 && rm -rf *  && git clone https://github.com/lizhongnian/zfaka && cd zfaka && mv * .[^.]* /www/wwwroot/3.113.175.118/ && cd /www/wwwroot/3.113.175.118 && rm -rf zfaka/
 mv conf/application.ini.new conf/application.ini
 chmod -R 777 conf/application.ini && chmod -R 777 install/ && chmod -R 777 temp/ && chmod -R 777 log
 cd /root/
@@ -94,6 +95,7 @@ mysql -u$mysqlusername -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&
 echo -e "${Info} 导入数据库已完成"
 sleep 1
 
+
 ##初始化站点信息
 echo -e "${Info} 正在配置站点基本信息"
 cd /www/wwwroot/$website
@@ -104,6 +106,7 @@ sed -i "s/sspanel-db-username/$mysqlusername/g" /www/wwwroot/$website/conf/appli
 sed -i "s/sspanel-db-password/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
 echo -e "${Info} 配置站点基本信息已完成"
 sleep 1
+
 
 #增加install文件
 touch install.lock
