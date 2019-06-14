@@ -109,8 +109,8 @@ sleep 1
 
 
 #增加install文件
-touch install.lock
-echo '1.4.3' >> install.lock
+touch install/install.lock
+echo '1.4.3' >> install/install.lock
 cd /root/
 
 ##加入定时任务
