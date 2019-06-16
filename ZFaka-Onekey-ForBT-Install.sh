@@ -59,7 +59,7 @@ echo -e "${Info} 请等待系统自动操作......"
 #处理源码
 yum -y install unzip
 yum -y instabll git
-cd /www/wwwroot/3.113.175.118 && rm -rf *  && git clone https://github.com/lizhongnian/zfaka && cd zfaka && mv * .[^.]* /www/wwwroot/3.113.175.118/ && cd /www/wwwroot/3.113.175.118 && rm -rf zfaka/
+cd /www/wwwroot/$website && rm -rf *  && git clone https://github.com/lizhongnian/zfaka && cd zfaka && mv * .[^.]* /www/wwwroot/$website/ && cd /www/wwwroot/$website && rm -rf zfaka/
 mv conf/application.ini.new conf/application.ini
 chmod -R 777 conf/application.ini && chmod -R 777 install/ && chmod -R 777 temp/ && chmod -R 777 log
 cd /root/
